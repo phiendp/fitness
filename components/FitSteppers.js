@@ -2,10 +2,10 @@ import React from 'react'
 import { View, Text } from 'react-native'
 
 
-export default function Slider() {
+export default function FitSteppers() {
   return (
     <View>
-      <Text> Slider </Text>
+      <Text> FitSteppers </Text>
     </View>
   )
 }

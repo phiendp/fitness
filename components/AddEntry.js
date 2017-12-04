@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { View, TouchableOpacity, Text } from 'react-native'
 import { getMetricMetaInfo, timeToString } from '../utils/helpers'
-import Slider from './Slider'
-import Steppers from './Steppers'
+import FitSlider from './FitSlider'
+import FitSteppers from './FitSteppers'
 import DateHeader from './DateHeader'
 
 
@@ -79,12 +79,12 @@ export default class AddEntry extends Component {
             <View key = {key}>
               {getIcon()}
               {type === 'slider'
-                ? <Slider 
+                ? <FitSlider 
                     value={value}
                     onChange={(value) => this.slide(key, value)}
                     {...rest}
                   />
-                : <Steppers 
+                : <FitSteppers 
                     value={value}
                     onIncrement={() => this.increment(key)}
                     onDecrement={() => this.decrement(key)}
