@@ -4,6 +4,8 @@ import { getMetricMetaInfo, timeToString } from '../utils/helpers'
 import FitSlider from './FitSlider'
 import FitSteppers from './FitSteppers'
 import DateHeader from './DateHeader'
+import  { Ionicons } from '@expo/vector-icons'
+import TextButton from'./TextButton'
 
 
 function SubmitBtn({ onPress }) {
@@ -65,8 +67,25 @@ export default class AddEntry extends Component {
     }))
   }
 
+  reset = () => {
+    const key = timeToString()
+  }
+
   render() {
     const metaInfo = getMetricMetaInfo()
+
+    if (this.props.alreadyLogged) {
+      return (
+        <View>
+          <Ionicons 
+            name={'ios-happy-outline'}
+            size={100}
+          />
+          <Text> You've already logged for today!</Text>
+          <TextButton onPress={this.reset}> Reset </TextButton>
+        </View>
+      )
+    }
 
     return (
       <View>
