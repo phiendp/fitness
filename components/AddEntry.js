@@ -6,6 +6,7 @@ import FitSteppers from './FitSteppers'
 import DateHeader from './DateHeader'
 import  { Ionicons } from '@expo/vector-icons'
 import TextButton from'./TextButton'
+import { submitEntry, removeEntry } from './utils/api'
 
 
 function SubmitBtn({ onPress }) {
@@ -65,10 +66,13 @@ export default class AddEntry extends Component {
       sleep: 0,
       eat: 0,
     }))
+
+    submitEntry({ key, entry })
   }
 
   reset = () => {
     const key = timeToString()
+    removeEntry({ key})
   }
 
   render() {
